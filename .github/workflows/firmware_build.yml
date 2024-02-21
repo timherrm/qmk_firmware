@@ -59,14 +59,12 @@ jobs:
     - name: Run `qmk compile` (${{ matrix.compilefor }})
       id: qmk_compile
       run: |
-        qmkout=$(qmk compile -kb $keyboard -km $keymap -e DUMP_CI_METADATA=yes) || touch .failed
-        echo "$qmkout"
-        echo "qmkout=$qmkout" >> $GITHUB_ENV
+        qmk compile -kb $keyboard -km $keymap -e DUMP_CI_METADATA=yes || touch .failed
         # Exit with failure if the compilation stage failed
         [ ! -f .failed ] || exit 1
 
     - name: Debug output
-      run: echo ${{ env.qmkout }}
+      run: echo ${{ steps.qmk_compile.outputs }}
 
     - name: 'Upload artifacts'
       uses: actions/upload-artifact@v4
