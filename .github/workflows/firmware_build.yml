@@ -62,6 +62,9 @@ jobs:
         # Exit with failure if the compilation stage failed
         [ ! -f .failed ] || exit 1
 
+    - name: Run `ls -la`
+      run: ls -la
+
     - name: 'Upload artifacts'
       uses: actions/upload-artifact@v4
       if: always()
