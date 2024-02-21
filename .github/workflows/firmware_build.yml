@@ -61,6 +61,7 @@ jobs:
       run: |
         qmkout=$(qmk compile -kb $keyboard -km $keymap -e DUMP_CI_METADATA=yes) || touch .failed
         echo "$qmkout"
+        echo "qmkout=$qmkout" >> $GITHUB_ENV
         # Exit with failure if the compilation stage failed
         [ ! -f .failed ] || exit 1
 
