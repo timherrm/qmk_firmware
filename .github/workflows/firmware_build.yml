@@ -59,7 +59,7 @@ jobs:
     - name: Run `qmk compile` (${{ matrix.compilefor }})
       id: qmk_compile
       run: |
-        echo "qmkout = $(qmk compile -kb $keyboard -km $keymap -e DUMP_CI_METADATA=yes)" >> $GITHUB_OUTPUT || touch .failed
+        $(qmk compile -kb $keyboard -km $keymap -e DUMP_CI_METADATA=yes) >> $GITHUB_OUTPUT || touch .failed
         # Exit with failure if the compilation stage failed
         [ ! -f .failed ] || exit 1
 
