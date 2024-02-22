@@ -27,7 +27,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        compilefor: [crkbd/rev1_via, redox/rev1_german]
+        compilefor: [crkbd/rev1_via, redox/rev1_german, redox/rev1_via]
 
     container: ghcr.io/qmk/qmk_cli
 
