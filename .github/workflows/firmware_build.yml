@@ -71,4 +71,5 @@ jobs:
       with:
         name: ${{ env.keyboard_escaped }}_${{ env.keymap }}.hex
         if-no-files-found: ignore
-        path: *.hex
+        path: |
+          *.hex
