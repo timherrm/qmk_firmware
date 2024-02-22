@@ -63,7 +63,7 @@ jobs:
         [ ! -f .failed ] || exit 1
 
     - name: Debug
-      run: pwd
+      run: ls -la
 
     - name: 'Upload artifacts'
       uses: actions/upload-artifact@v4
@@ -71,4 +71,4 @@ jobs:
       with:
         name: ${{ env.keyboard_escaped }}_${{ env.keymap }}.hex
         if-no-files-found: ignore
-        path: ${{ env.keyboard_escaped }}_${{ env.keymap }}.hex
+        path: *.hex
